@@ -10,41 +10,42 @@
   --font-code:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
   --font-ui:"Fredoka","Trebuchet MS",Arial,sans-serif;
   color-scheme:light;
+  --s:max(.5px,min(1px,.139vh,.078vw));
 }
 [hidden]{display:none!important}
 html,body{height:100%}
 body{margin:0;background:linear-gradient(180deg,var(--sky1) 0%,#e3f5ff 45%,var(--sky2) 100%);color:var(--ink);font-family:var(--font-ui);overflow:hidden}
-#app{height:100%;box-sizing:border-box;padding-inline:16px;padding-block:14px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;max-width:1280px;margin:0 auto;align-items:center}
+#app{height:100%;box-sizing:border-box;padding-inline:calc(16*var(--s));padding-block:calc(14*var(--s));display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:calc(18*var(--s));max-width:calc(1280*var(--s));margin:0 auto;align-items:center}
 .scene{position:relative;min-width:0;height:100%;display:flex;align-items:center;justify-content:center}
 canvas{width:100%;height:100%;max-height:100%;display:block}
-.side{min-width:0;display:flex;flex-direction:column;gap:14px}
-.counters{display:flex;gap:12px;flex-wrap:wrap}
-.cnt{flex:1;min-width:150px;background:var(--card);border-radius:18px;padding:10px 14px;box-shadow:0 6px 0 rgba(36,50,74,.08);display:flex;flex-direction:column;gap:8px}
-.cnt .top{display:flex;align-items:baseline;gap:8px;font:800 26px var(--font-code)}
+.side{min-width:0;display:flex;flex-direction:column;gap:calc(14*var(--s))}
+.counters{display:flex;gap:calc(12*var(--s));flex-wrap:wrap}
+.cnt{flex:1;min-width:calc(150*var(--s));background:var(--card);border-radius:calc(18*var(--s));padding:calc(10*var(--s)) calc(14*var(--s));box-shadow:0 calc(6*var(--s)) 0 rgba(36,50,74,.08);display:flex;flex-direction:column;gap:calc(8*var(--s))}
+.cnt .top{display:flex;align-items:baseline;gap:calc(8*var(--s));font:800 calc(26*var(--s)) var(--font-code)}
 .cnt.j .top{color:var(--row)} .cnt.i .top{color:var(--spot)}
-.cnt .top small{font:600 15px var(--font-ui);color:var(--soft)}
-.dots{display:flex;gap:6px;flex-wrap:wrap}
-.dots span{width:18px;height:18px;border-radius:6px;background:var(--line);transition:all .2s}
+.cnt .top small{font:600 calc(15*var(--s)) var(--font-ui);color:var(--soft)}
+.dots{display:flex;gap:calc(6*var(--s));flex-wrap:wrap}
+.dots span{width:calc(18*var(--s));height:calc(18*var(--s));border-radius:calc(6*var(--s));background:var(--line);transition:all .2s}
 .cnt.j .dots span.on{background:var(--row)} .cnt.i .dots span.on{background:var(--spot)}
-.cnt.j .dots span.cur{background:var(--row);transform:scale(1.25);box-shadow:0 0 0 3px var(--row-soft)}
-.cnt.i .dots span.cur{background:var(--spot);transform:scale(1.25);box-shadow:0 0 0 3px var(--spot-soft)}
-.code{background:var(--card);border-radius:18px;padding:14px 0;box-shadow:0 6px 0 rgba(36,50,74,.08);font:500 clamp(11px,1.2vw,16px)/1.75 var(--font-code);overflow-x:auto}
-.ln{padding:0 16px;white-space:pre;border-left:5px solid transparent;transition:background .15s}
+.cnt.j .dots span.cur{background:var(--row);transform:scale(1.25);box-shadow:0 0 0 calc(3*var(--s)) var(--row-soft)}
+.cnt.i .dots span.cur{background:var(--spot);transform:scale(1.25);box-shadow:0 0 0 calc(3*var(--s)) var(--spot-soft)}
+.code{background:var(--card);border-radius:calc(18*var(--s));padding:calc(14*var(--s)) 0;box-shadow:0 calc(6*var(--s)) 0 rgba(36,50,74,.08);font:500 max(calc(10*var(--s)),calc(16*var(--s)))/1.75 var(--font-code);overflow-x:auto}
+.ln{padding:0 calc(16*var(--s));white-space:pre;border-left:calc(5*var(--s)) solid transparent;transition:background .15s}
 .ln.cur{background:var(--hl);border-left-color:#ffcf1a}
 .k{color:#c2309a;font-weight:700}.f{color:#2a7de1}.s{color:#1f9d55}.vj{color:var(--row);font-weight:800}.vi{color:var(--spot);font-weight:800}.num{color:#7a4cff;font-weight:800}
-.bar{display:flex;align-items:center;gap:12px}
-.play{border:0;cursor:pointer;height:64px;min-width:120px;border-radius:20px;background:#3ccf6e;color:#fff;font:700 30px var(--font-ui);box-shadow:0 6px 0 #239b4e;transition:transform .08s}
-.play:active{transform:translateY(4px);box-shadow:0 2px 0 #239b4e}
-.again{border:0;cursor:pointer;height:64px;width:64px;border-radius:20px;background:var(--card);color:var(--ink);font:700 28px var(--font-ui);box-shadow:0 6px 0 rgba(36,50,74,.15)}
-.play:focus-visible,.again:focus-visible{outline:4px solid var(--spot);outline-offset:3px}
-.stepper{display:flex;align-items:center;gap:6px;background:var(--card);border-radius:18px;padding:6px 8px;box-shadow:0 6px 0 rgba(36,50,74,.08);font:800 20px var(--font-code)}
-.stepper .nm{padding:0 4px;color:#7a4cff}
+.bar{display:flex;align-items:center;gap:calc(12*var(--s))}
+.play{border:0;cursor:pointer;height:calc(64*var(--s));min-width:calc(120*var(--s));border-radius:calc(20*var(--s));background:#3ccf6e;color:#fff;font:700 calc(30*var(--s)) var(--font-ui);box-shadow:0 calc(6*var(--s)) 0 #239b4e;transition:transform .08s}
+.play:active{transform:translateY(calc(4*var(--s)));box-shadow:0 calc(2*var(--s)) 0 #239b4e}
+.again{border:0;cursor:pointer;height:calc(64*var(--s));width:calc(64*var(--s));border-radius:calc(20*var(--s));background:var(--card);color:var(--ink);font:700 calc(28*var(--s)) var(--font-ui);box-shadow:0 calc(6*var(--s)) 0 rgba(36,50,74,.15)}
+.play:focus-visible,.again:focus-visible{outline:calc(4*var(--s)) solid var(--spot);outline-offset:calc(3*var(--s))}
+.stepper{display:flex;align-items:center;gap:calc(6*var(--s));background:var(--card);border-radius:calc(18*var(--s));padding:calc(6*var(--s)) calc(8*var(--s));box-shadow:0 calc(6*var(--s)) 0 rgba(36,50,74,.08);font:800 calc(20*var(--s)) var(--font-code)}
+.stepper .nm{padding:0 calc(4*var(--s));color:#7a4cff}
 .stepper output{min-width:1.6ch;text-align:center;color:#7a4cff;font-variant-numeric:tabular-nums}
-.stepper button{border:0;cursor:pointer;width:40px;height:40px;border-radius:12px;background:#efe9ff;color:#5b34d6;font:800 24px var(--font-ui)}
+.stepper button{border:0;cursor:pointer;width:calc(40*var(--s));height:calc(40*var(--s));border-radius:calc(12*var(--s));background:#efe9ff;color:#5b34d6;font:800 calc(24*var(--s)) var(--font-ui)}
 .stepper button:disabled{opacity:.35;cursor:default}
-.stepper button:focus-visible{outline:3px solid var(--spot);outline-offset:2px}
+.stepper button:focus-visible{outline:calc(3*var(--s)) solid var(--spot);outline-offset:calc(2*var(--s))}
 .bar{flex-wrap:wrap}
-.total{margin-left:auto;font:800 28px var(--font-code);color:var(--ink);font-variant-numeric:tabular-nums}
+.total{margin-left:auto;font:800 calc(28*var(--s)) var(--font-code);color:var(--ink);font-variant-numeric:tabular-nums}
 @media (max-aspect-ratio:1/1){
   body{overflow:auto}
   #app{grid-template-columns:1fr;height:auto;min-height:100%;align-items:start}
@@ -74,7 +75,7 @@ canvas{width:100%;height:100%;max-height:100%;display:block}
 <script>
 (function(){
 const $=id=>document.getElementById(id);
-let N=2, STEP=2, G=10;
+let N=2, STEP=2; const G=25;
 // ---------- code ----------
 const CODE=[
  'n = <span class="num" id="cN">2</span>',
@@ -96,7 +97,6 @@ function dots(id,cur){[...$(id).children].forEach((d,k)=>{d.classList.toggle('on
 // ---------- steps ----------
 let ev=[];
 function build(){
-  G=Math.min(25,Math.max(10,(N-1)*STEP+5));if(W)resize();
   ev=[];
   for(let j=0;j<N;j++){
     ev.push({line:3,j});ev.push({line:4,j});
@@ -111,7 +111,7 @@ function build(){
 // ---------- scene (isometric) ----------
 const cv=$('cv'),ctx=cv.getContext('2d');let W=0,H=0,tw=0,th=0,ox=0,oy=0;
 function resize(){const r=cv.getBoundingClientRect(),d=Math.min(2,devicePixelRatio||1);W=cv.width=Math.round(r.width*d);H=cv.height=Math.round(r.height*d);
-  tw=Math.min(W/(G+4),H/((G+18)/2+.5));th=tw/2;ox=W/2;oy=th*6.5+(H-th*(G+18))/2;}
+  tw=Math.min(W/(G+4),H/21);th=tw/2;ox=W/2;oy=th*6.5+(H-th*43)/2;}
 const iso=(gx,gz,h=0)=>[ox+(gx-gz)*tw/2,oy+(gx+gz)*th/2-h*th*1.05];
 function poly(pts,fill,stroke){ctx.beginPath();ctx.moveTo(pts[0][0],pts[0][1]);for(let k=1;k<pts.length;k++)ctx.lineTo(pts[k][0],pts[k][1]);ctx.closePath();ctx.fillStyle=fill;ctx.fill();if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=Math.max(1,tw*.04);ctx.stroke()}}
 const clouds=[[.12,.22,1],[.82,.14,.8],[.9,.62,1.1],[.06,.7,.9]];
@@ -158,31 +158,28 @@ function draw(t){
   const k=iso(kor.x+.5,kor.z+.5,4+Math.sin(t/300)*.3);drawKor(k[0],k[1],tw*.95,t);
   if(glow>0){ctx.globalAlpha=glow*.35;poly([p0,p1,p2,p3],'#bff4ff');ctx.globalAlpha=1;glow-=.008}
 }
-function tag(x,y,txt,bg,fg,big,sm){
-  const fs=tw*(big?.62:.46)*(sm||1);ctx.font=`800 ${fs}px JetBrains Mono, monospace`;ctx.textAlign='center';ctx.textBaseline='middle';
-  const w=Math.max(ctx.measureText(txt).width+fs*.7,fs*1.5),h=fs*1.45;
+function tag(x,y,txt,bg){
+  const fs=Math.max(tw*.62,12*Math.min(2,devicePixelRatio||1));ctx.font=`800 ${fs}px JetBrains Mono, monospace`;ctx.textAlign='center';ctx.textBaseline='middle';
+  const w=ctx.measureText(txt).width+fs*1.1,h=fs*1.6;x=Math.max(w/2+4,Math.min(W-w/2-4,x));
+  ctx.fillStyle='rgba(36,50,74,.18)';ctx.beginPath();if(ctx.roundRect)ctx.roundRect(x-w/2,y-h/2+fs*.18,w,h,h/2);else ctx.rect(x-w/2,y-h/2+fs*.18,w,h);ctx.fill();
   ctx.fillStyle=bg;ctx.beginPath();if(ctx.roundRect)ctx.roundRect(x-w/2,y-h/2,w,h,h/2);else ctx.rect(x-w/2,y-h/2,w,h);ctx.fill();
-  if(big){ctx.strokeStyle='#ffffff';ctx.lineWidth=Math.max(2,tw*.07);ctx.stroke()}
-  ctx.fillStyle=fg;ctx.fillText(txt,x,y+fs*.04);
+  ctx.strokeStyle='#ffffff';ctx.lineWidth=Math.max(2,fs*.12);ctx.stroke();
+  ctx.fillStyle='#ffffff';ctx.fillText(txt,x,y+fs*.04);ctx.textAlign='left';
 }
+// dashed guides from the plate edges to the current cell
 function drawAxes(){
-  const last=(N-1)*STEP,sm=STEP===1?.68:1;
-  // faint guide lines on the plate for used rows and columns
-  ctx.lineWidth=Math.max(1,tw*.05);
-  for(let i=0;i<N;i++){const x=i*STEP+.5;const a=iso(x,0),b=iso(x,G);ctx.strokeStyle='rgba(32,198,232,.22)';ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.stroke()}
-  for(let j=0;j<N;j++){const z=j*STEP+.5;const a=iso(0,z),b=iso(G,z);ctx.strokeStyle='rgba(255,159,46,.25)';ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.stroke()}
+  if(cur.j==null)return;
+  const z=cur.j*STEP,x=cur.i==null?null:cur.i*STEP;
+  ctx.setLineDash([tw*.3,tw*.2]);ctx.lineWidth=Math.max(2,tw*.12);
+  const r0=iso(-3.4,z+.5),r1=iso(x==null?G:x+.5,z+.5);ctx.strokeStyle='#ff9f2e';ctx.beginPath();ctx.moveTo(r0[0],r0[1]);ctx.lineTo(r1[0],r1[1]);ctx.stroke();
+  if(x!=null){const c0=iso(x+.5,-3.4),c1=iso(x+.5,z+.5);ctx.strokeStyle='#20c6e8';ctx.beginPath();ctx.moveTo(c0[0],c0[1]);ctx.lineTo(c1[0],c1[1]);ctx.stroke()}
+  ctx.setLineDash([]);
 }
+// two simple labels: which row (z) and which column (x) the code is on now
 function drawTags(){
-  const last=(N-1)*STEP,sm=STEP===1?.68:1;
-  // x values (columns)
-  for(let i=0;i<N;i++){const x=i*STEP;const p=iso(x+.5,-1.2);const on=cur.i===i;
-    tag(p[0],p[1],String(x),on?'#20c6e8':'rgba(255,255,255,.92)',on?'#ffffff':'#1593ad',on,sm)}
-  const ax=iso(last+.5+Math.max(2,STEP),-1.2);tag(ax[0],ax[1],'x','#20c6e8','#ffffff',true);
-  // z values (rows)
-  for(let j=0;j<N;j++){const z=j*STEP;const p=iso(-1.2,z+.5);const on=cur.j===j&&cur.j!=null;
-    tag(p[0],p[1],String(z),on?'#ff9f2e':'rgba(255,255,255,.92)',on?'#ffffff':'#c86f0a',on,sm)}
-  const az=iso(-1.2,last+.5+Math.max(2,STEP));tag(az[0],az[1],'z','#ff9f2e','#ffffff',true);
-  ctx.textAlign='left';
+  if(cur.j==null)return;
+  const z=cur.j*STEP;const pz=iso(-4.6,z+.5);tag(pz[0],pz[1],'z = '+z,'#ff9f2e');
+  if(cur.i!=null){const x=cur.i*STEP;const px=iso(x+.5,-4.6);tag(px[0],px[1],'x = '+x,'#20c6e8')}
 }
 function drawCube(gx,gz,top,left,right,h,lift=0){
   const a=iso(gx,gz,h+lift),b=iso(gx+1,gz,h+lift),c=iso(gx+1,gz+1,h+lift),d=iso(gx,gz+1,h+lift),
